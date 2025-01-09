@@ -1,0 +1,5 @@
+print('Michael Lund')
+print('1+2')
+print(1+2)
+input()
+print(input)
