@@ -18,7 +18,9 @@ while value <= max_value:
             break
         trial_factor += 1
     if is_prime:
+        count += 1
         print(value, end=' ') #display prime
     value += 1 #try next potential prime number
 elapsed = perf_counter() - start
-print(f'Count: {count}, Elapsed TIme: {round(elapsed, 2)} seconds')
+print()
+print(f'Count: {count}, Elapsed Time: {round(elapsed, 3)} seconds')
