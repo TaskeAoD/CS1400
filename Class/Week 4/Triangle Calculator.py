@@ -12,8 +12,9 @@ sideB_Squared = pow(sideB, 2)
 
 sideC_Squared = sideA_Squared + sideB_Squared
 sideC = sqrt(sideC_Squared)
-print(f"The value of Side C for your numbers is {round(sideC, 2)}")
+print(f"The value of Side C for your numbers is {round(sideC, 2)}") #Including rounding for better reading
 
+#Now to add random values
 sideA = randint(1, 101)
 sideB = randint(1, 101)
 
@@ -26,4 +27,4 @@ sideB_Squared = pow(sideB, 2)
 sideC_Squared = sideA_Squared + sideB_Squared
 
 sideC = sqrt(sideC_Squared)
-print(f"The value of Side C for the random values is {round(sideC, 2)}")
+print(f"The value of Side C for the random values is {round(sideC, 2)}") #Including rounding for better reading
