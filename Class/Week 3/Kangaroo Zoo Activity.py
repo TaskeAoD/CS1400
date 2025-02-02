@@ -15,7 +15,7 @@ total = 0
 print("Welcome to Kangaroo Zoo!\n Please choose an option:")
 print("1. Cost Estimate\n2. Quit")
 choiceA = int(input("Enter Choice: "))
-while choiceA != 2:
+while choiceA != 0:
     if choiceA == 2:
         print("Have a bouncy day!")
         break
