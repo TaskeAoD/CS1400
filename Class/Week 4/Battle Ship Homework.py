@@ -18,18 +18,18 @@ while play != 0:
         break
     if play == 1:
         print("Setting up game, please wait.")
-        shipA = randint(1, 20)
-        shipB = randint(1, 20)
-        for count in range(20, -1, -1):
+        shipA = randint(1, 10)
+        shipB = randint(1, 10)
+        for count in range(10, -1, -1):
             print(f"{count} turns left.")
             sleep(1)
-            if turn == 20:
+            if turn == 10:
                 play = int(input("You didn't sink it this time, would you like to try again? "))
                 turn = 0
             coordA = int(input("Please enter your 'X' Coordinate: "))
             coordB = int(input("Please enter your 'Y' Coordinate: "))
             if coordA == shipA and coordB == shipB:
-                print("Thats a hit! You sank my Battleship!")
+                print("Thats a hit! You sank my Submarine!")
                 turn += 1
                 print(f"You sank it in {turn} guesses!")
                 turn = 0
@@ -45,6 +45,6 @@ while play != 0:
 
     if play == 3:
         print("This version of Battleship is played with just you and the computer.")
-        print("When the game starts the computer will place it's ship and your task")
-        print("is to sink it in as few turns as possible.\nYou have 20 attempts in a 20x20 kilometer field.")
+        print("When the game starts the computer will place a submarine and your task")
+        print("is to sink it in as few turns as possible.\nYou have 10 attempts in a 10x10 kilometer field.")
         play = int(input("Would you like to play? "))
