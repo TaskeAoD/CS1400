@@ -23,7 +23,7 @@ def main():
     max_value = int(input("Display prime values up to what number: "))
     for value in range(2, max_value +1):
         if is_prime(value):
-            print(value, end= " ")
+            print(value)##, end= " ")
     print()
 
 main()
