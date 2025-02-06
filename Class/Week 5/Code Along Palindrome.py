@@ -34,7 +34,16 @@ def isPalindrome(phrase):
 #Main Program
 printHeader("Palindrome Tester")
 
-phrase = clean("Hello, World!")
-printHeader(phrase)
-result = isPalindrome(phrase)
-print(result)
+phrase = ""
+while phrase != "q":
+    phrase = input("Enter a phrase to test if it is a Palindrome or (q)uit: ")
+    if phrase.lower() == "q":
+        print("Quitting Tester")
+        break
+    if isPalindrome(phrase):
+        print(f"{phrase} IS a palindrome!")
+    else:
+        print(f"{phrase} IS NOT a palindrome.")
+#printHeader(phrase)
+#result = isPalindrome(phrase)
+#print(result)
