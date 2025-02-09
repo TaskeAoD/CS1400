@@ -1,28 +1,35 @@
 #Pig Latin Converter
 
-Vowel = ('a', 'e', 'i', 'o', 'u')
-
+word = ''
+words = ''
 #Should return with Pig Latin
-def isVowel(phrase):
-    if (phrase[0] in Vowel):
-        return (phrase + "yay")
+
+
+
+def GetPigLatinWord(words):
+    vowels = "aeiou"
+    if words[0].lower() in vowels:
+        return word + "yay"
     else:
-        for letter in phrase:
-            return (phrase[phrase.index(letter):] + phrase[phrase.index(letter)] + 'ay')
-        
-def FirstVowelPos():
-    return
-    
-def GetPigLatinWord(phrase):
-    if isVowel(phrase):
-        return phrase
-    
-    
-phrase = ""
-while phrase != 'Done':
-    phrase = input('Please Enter Word: ');
-    if phrase == 'Done':
+        first_consonants = ""
+        for letter in word:
+            if letter.lower() not in vowels:
+                first_consonants += letter
+            else:
+                break
+        return words[len(first_consonants):] + first_consonants + "ay"
+
+def translate_word(word):
+    words = word.split()
+    words = [GetPigLatinWord(word) for word in words]
+    return " ".join(words)
+
+
+while word != 'Done':
+    word = input('Please Enter Word: ');
+    if word == 'Done':
         print("Quitting translator")
         break
-    if GetPigLatinWord(phrase):
-        print(phrase)
+    else:
+        translate = translate_word(word)
+        print(translate)
