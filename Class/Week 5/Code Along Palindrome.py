@@ -44,6 +44,6 @@ while phrase != "q":
         print(f"{phrase} IS a palindrome!")
     else:
         print(f"{phrase} IS NOT a palindrome.")
-#printHeader(phrase)
-#result = isPalindrome(phrase)
-#print(result)
+printHeader(phrase)
+result = isPalindrome(phrase)
+print(result)
