@@ -1,4 +1,8 @@
-def isvowel(test):
+test = ''
+cleanword = ''
+clean = ''
+
+"""def isvowel(test):
     vowels = 'aeiou'
     for i in test:
         if i in vowels:
@@ -6,9 +10,18 @@ def isvowel(test):
             return
     else:
         print("vowels not in here")
-        return
+        return"""
 
-test = ''  
+def isvowel(test):
+    letters = "abcdefghijklmnopqrstuvwxyz"
+    cleanword = ''
+    for i in test.lower():
+        if i in letters:
+            cleanword += i
+            print(cleanword)
+    return cleanword
+
+
 while test != "bad":          
     test = str(input("Type a word: "))
     if test == "bad":
@@ -16,3 +29,4 @@ while test != "bad":
     else:
         isvowel(test)
         print("test complete")
+        print(cleanword)
