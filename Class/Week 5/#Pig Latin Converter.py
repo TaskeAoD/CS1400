@@ -4,7 +4,7 @@ word = ''
 words = ''
 #Should return with Pig Latin
 
-#def isvowel(test):   #For some reason I couldn't get this to easily
+#def isVowel(test):   #For some reason I couldn't get this to easily
 #    vowels = 'aeiou' #work with the rest, but it did let me test
 #    for i in test:   #early on for vowels
 #        if i in vowels:
@@ -16,9 +16,9 @@ words = ''
 
 #Now the actual part of the program that converts to Pig Latin
 def GetPigLatinWord(words):
-    vowels = "aeiou"                  #Was able to get it to check again for
-    if words[0].lower() in vowels:  #for vowels, and combined to output earlier
-        return word + "yay"           #variable with the correct modifications
+    vowels = "aAeEiIoOuU"                   #Was able to get it to check again for
+    if words[0].lower() in vowels:          #for vowels, and combined to output earlier
+        return word + "yay"                 #variable with the correct modifications
     else:
         first_consonants = ""
         for letter in word:
