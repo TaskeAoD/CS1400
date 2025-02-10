@@ -4,12 +4,21 @@ word = ''
 words = ''
 #Should return with Pig Latin
 
+#def isvowel(test):   #For some reason I couldn't get this to easily
+#    vowels = 'aeiou' #work with the rest, but it did let me test
+#    for i in test:   #early on for vowels
+#        if i in vowels:
+#            print("There are vowels")
+#            return
+#    else:
+#        print("vowels not in here")
+#        return
 
-
+#Now the actual part of the program that converts to Pig Latin
 def GetPigLatinWord(words):
-    vowels = "aeiou"
-    if words[0].lower() in vowels:
-        return word + "yay"
+    vowels = "aeiou"                #Was able to get it to check again for
+    if words[0].lower() in vowels:  #for vowels, and combined to output earlier
+        return word + "yay"         #if so
     else:
         first_consonants = ""
         for letter in word:
@@ -26,10 +35,11 @@ def translate_word(word):
 
 
 while word != 'Done':
-    word = input('Please Enter Word: ');
+    word = input("Please Enter Word: (If done with translating enter 'Done') ");
     if word == 'Done':
         print("Quitting translator")
         break
     else:
         translate = translate_word(word)
         print(translate)
+        print("Let's try another! ")
