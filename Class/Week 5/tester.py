@@ -19,6 +19,7 @@ def isvowel(test):
         if i in letters:
             cleanword += i
             print(cleanword)
+    print(cleanword)
     return cleanword
 
 
