@@ -8,8 +8,8 @@ def iterative_gcd(num1, num2):
     
     
 def main():
-    n1 = get_int()
-    n2 = get_int()
-    print(f"gcd of {num1} and {num2} is {gcd(n1, n2)}")
+    num1 = get_int()
+    num2 = get_int()
+    print(f"gcd of {num1} and {num2} is {gcd(num1, num2)}")
     
 main()
