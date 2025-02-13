@@ -1,4 +1,4 @@
-def gcd(m, n):
+'''def gcd(m, n):
     if n == 0:
         return m
     else:
@@ -12,4 +12,4 @@ def main():
     num2 = get_int()
     print(f"gcd of {num1} and {num2} is {gcd(num1, num2)}")
     
-main()
+main()'''

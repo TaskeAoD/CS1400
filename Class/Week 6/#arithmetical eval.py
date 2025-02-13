@@ -1,4 +1,4 @@
-"""#arithmetical eval
+#arithmetical eval
 
 def add(x, y):
     '''
@@ -23,6 +23,4 @@ def main():
     print(evaluate(add, 2, 3))
     print(evaluate(multiply, 2, 3))
     
-main()"""
-
-
+main()
