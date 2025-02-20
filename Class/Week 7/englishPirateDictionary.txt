@@ -1,5 +1,3 @@
-# englishPirateDictionary.py
-
 english_pirate_dict = {
 "hello":"ahoy", 
 "to":"ta", 
