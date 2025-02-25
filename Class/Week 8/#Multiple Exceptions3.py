@@ -19,8 +19,8 @@ for i in range(10):
         print("Cannot convert integer", type(e), e)
     except IndexError as e:
         print("List index out of range.", type(e), e)
-    except ZeroDivisionError as e:
-        print("Cannot divide by 0", type(e), e)
+    except ZeroDivisionError as z:
+        print("Cannot divide by 0", type(z), z)
     except Exception as e: #mostly a catch all
         print("There was another type of error.", type(e), e)
     except: #This is the real catch all, has to be the last except block in the try group
