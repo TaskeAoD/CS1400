@@ -8,7 +8,7 @@ for i in range(10):
     try:
         r = random.randint(1, 4)
         if r == 1:
-            print(int("fred"))
+            print(int("Fred"))
         elif r == 2:
             [][2] = 5
         elif r == 3:
