@@ -3,6 +3,8 @@
         "createdictionary",
         "exitonclick",
         "omplete",
+        "pidigits",
+        "Taske",
         "Trackmouse"
     ],
     "python.analysis.extraPaths": [
