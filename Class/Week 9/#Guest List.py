@@ -13,4 +13,4 @@ path.write_text(fullName)
 
 with open(path) as file_object:
     for line in file_object:
-        print(line)
+        print(line.rstrip())
