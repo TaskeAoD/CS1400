@@ -26,10 +26,10 @@ def AddItem():
     
     try:
         print(f"Adding {item} to {file}")
-        f =  open(f"{file}", 'a')               #Opens Groceries.txt to append the item to the list
+        '''f =  open(f"{file}", 'a')               #Opens Groceries.txt to append the item to the list
         f.write(item + "\n")                    #Adds item to list, the creates new line
-        f.close()                               #Closes file
-        
+        f.close()'''                               #Closes file
+        SaveList()
     except FileNotFoundError as err:
         print(err)
         

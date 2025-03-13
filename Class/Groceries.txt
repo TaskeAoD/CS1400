@@ -1,3 +1,2 @@
-Apples
-Pear
-Banana
+banana
+mango
