@@ -1,5 +1,3 @@
-Peaches
-Oranges
+Apples
+Pear
 Banana
-Mango
-Plum
