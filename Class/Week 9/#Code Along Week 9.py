@@ -1,4 +1,4 @@
-#Code Along Week 9, l# = Line number comment is attached to due to tab lining
+#Code Along Week 9, l# = Line number comment is attached to due to tab lining and as a countermeasure to copying
 '''Shopping list
 Add Items, Remove Items, View List
 Read, write, open, close files'''
@@ -48,10 +48,24 @@ def SaveList():
     except FileNotFoundError as err:
         print(err)
         
-#def Menu():
+def RemoveItems():
+    try:
+        item = input(f"What item would you like to remove from {file}? ")
+        list.remove(item)                       #Removes Item from list l54
+        ViewList()
+        SaveList()
+        
+    except ValueError as err:
+        print(f"{item} is not found on {file}. Items are Case-Sensitive.")
+        ViewList()
+        
+    
+def Menu():
+    
     
 
 LoadList()
 AddItem()
 ViewList()
-SaveList()
+#SaveList()
+RemoveItems()
