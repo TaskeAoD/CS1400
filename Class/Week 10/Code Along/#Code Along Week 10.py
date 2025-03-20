@@ -40,9 +40,20 @@ class Vehicle:
             f'year = "{self.year}", '
             f'color = "{self.color}")'
         )
-ford_mustang = Vehicle("Ford", "Mustang", 1967, "Black")
 
-print(ford_mustang.color)
-print(ford_mustang.year)
-print(ford_mustang.model)
-print(ford_mustang.make)
+def main():
+    try:
+        #create a bunch of vehicles with different models, colors, years, and makes
+        car1 = Vehicle("Toyota", "Camry", 2024, "White")
+        car2 = Vehicle("GMC", "Yukon XL", 2015, "Black")
+        car3 = Vehicle("Kia", "Sorrento", 2019, "Blu")
+        car4 = Vehicle("Honda", "CRV", 2025, "Orange")
+        
+        vehicles = [car1, car2, car3, car4]
+        for vehicle in vehicles:
+            print(vehicle)
+        
+    except ValueError as e:
+        print(f"Error: {e}")
+        
+main()
