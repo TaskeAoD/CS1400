@@ -11,10 +11,31 @@ class Vehicle:
         self.speed = 0
         self.max_speed = 200
         
+    def accelerate(self, value):
+        if not self.started:
+            print("The car is not started.")
+            return
+        if self.speed + value <= self.max_speed:
+            self.speed += value
+        else:
+            self.speed = self.max_speed 
+        print(f"Accelerating to  {self.speed} km/h....")       
+    
+    def __str__(self):
+        return f"{self.make} {self.model} {self.year} {self.color}"    
 
+    def __repr__(self):
+        return(
+            
+            f"{type(self).__name__}"
+            f'(make = "{self.make}", '
+            f'model = "{self.model}", '
+            f'year = "{self.year}", '
+            f'color = "{self.color}")'
+        )
 ford_mustang = Vehicle("Ford", "Mustang", 1967, "Black")
 
-print(ford_mustang.color)
+'''print(ford_mustang.color)
 print(ford_mustang.year)
 print(ford_mustang.model)
-print(ford_mustang.make)
+print(ford_mustang.make)'''
