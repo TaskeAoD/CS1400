@@ -19,7 +19,14 @@ class Vehicle:
             self.speed += value
         else:
             self.speed = self.max_speed 
-        print(f"Accelerating to  {self.speed} km/h....")       
+        print(f"Accelerating to {self.speed} km/h....")
+        
+    def brake(self, value):
+        if self.speed - value >= 0:
+            self.speed -= value
+        else:
+            self.speed = 0  
+        print(f"Braking to {self.speed} km/h....")  
     
     def __str__(self):
         return f"{self.make} {self.model} {self.year} {self.color}"    
@@ -35,7 +42,7 @@ class Vehicle:
         )
 ford_mustang = Vehicle("Ford", "Mustang", 1967, "Black")
 
-'''print(ford_mustang.color)
+print(ford_mustang.color)
 print(ford_mustang.year)
 print(ford_mustang.model)
-print(ford_mustang.make)'''
+print(ford_mustang.make)
