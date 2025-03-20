@@ -1,8 +1,38 @@
 #Code Along Week 10
+class EngineType:
+    #valid engine type
+    VALID_ENGINE_TYPES = {'gasoline', 'diesel', 'electric', 'hybrid'}
+    
+    def __init__(self, engine_type, fuel_efficiency, horsepower=None, battery_capacity=None):
+        if engine_type.lower() not in self.VALID_ENGINE_TYPES:
+            raise ValueError (f"Engine type must be one of {self.VALID_ENGINE_TYPES}, you entered {engine_type}.")
+        #Valid Fuel Efficiency
+        if not isinstance(fuel_efficiency, (int, float)) or fuel_efficiency <= 0:
+            raise ValueError("Fuel Efficiency must be a positive number.")
+        self.engine_type = engine_type.lower()
+        self.fuel_efficiency = fuel_efficiency
+        self.horsepower = horsepower
+        self.battery_capacity = battery_capacity #in kW/h applicable to Electric engines
+        
+    def describe_engine(self):
+        #determine the unit based on engine type
+        efficiency_unit = 'kWh/100 miles.' if self.engine_type == 'electric' else 'miles/gallon.'
+        base_info = f"Engine type: {self.engine_type.capitalize} , Fuel Efficiency: {self.fuel_efficiency} {efficiency_unit}."
+        if self.horsepower:
+            base_info += f", Horse Power: {self.horsepower} HP"
+        if self.battery_capacity and self.engine_type == "electric.":
+            base_info += f", Battery Capacity: {self.battery_capacity} kWh"
+        return base_info
+    
+    def charge(self):
+        if self.engine_type != 'electric':
+            raise ValueError ("Only Electric engines can be charged.")
+        return "Charging electric engine."
+            
 
 class Vehicle:
     
-    def __init__(self, make, model, year, color): #init needs to start with 'self' no matter what
+    def __init__(self, make, model, year, color, engine_type, fuel_efficiency, horsepower=None, battery_capacity=None): #init needs to start with 'self' no matter what
         self.make = make
         self.model = model
         self.year = year
@@ -10,6 +40,7 @@ class Vehicle:
         self.started = False
         self.speed = 0
         self.max_speed = 200
+        self.engine = EngineType(engine_type, fuel_efficiency, horsepower, battery_capacity)
         
     def accelerate(self, value):
         if not self.started:
@@ -28,6 +59,26 @@ class Vehicle:
             self.speed = 0  
         print(f"Braking to {self.speed} km/h....")  
     
+    def start(self):
+        if self.started:
+            print("Engine is running.")
+        else:
+            print(f"Starting {self.engine.engine_type}")
+            self.started = True
+            
+    def stop(self):
+        if not self.started:
+            print("Engine is already stopped.")
+        else:
+            print(f"Stopping {self.engine.engine_type}")
+            self.started = False
+    
+    def get_status(self):
+        return "Running" if self.started else "Stopped"
+    
+    def charge_status(self):
+        return self.engine.charge()
+    
     def __str__(self):
         return f"{self.make} {self.model} {self.year} {self.color}"    
 
@@ -44,16 +95,21 @@ class Vehicle:
 def main():
     try:
         #create a bunch of vehicles with different models, colors, years, and makes
-        car1 = Vehicle("Toyota", "Camry", 2024, "White")
-        car2 = Vehicle("GMC", "Yukon XL", 2015, "Black")
-        car3 = Vehicle("Kia", "Sorrento", 2019, "Blu")
-        car4 = Vehicle("Honda", "CRV", 2025, "Orange")
+        car1 = Vehicle("Toyota", "Camry", 2024, "White", "Gasoline", 30, horsepower= 203)
+        car2 = Vehicle("GMC", "Yukon XL", 2015, "Black", "Diesel", 13, horsepower= 250)
+        car3 = Vehicle("Kia", "Sorrento", 2019, "Blu", "Hybrid", 45, horsepower= 175)
+        car4 = Vehicle("Honda", "CRV", 2025, "Orange", "Gasoline", 24, horsepower= 203)
+        car5 = Vehicle("Tesla", "Model Y", 2025, "Grey", "Electric", 104, battery_capacity = 200)
         
-        vehicles = [car1, car2, car3, car4]
+        
+        vehicles = [car1, car2, car3, car4, car5]
         for vehicle in vehicles:
+            print(vehicle)
+            vehicle.start()
             print(vehicle)
         
     except ValueError as e:
         print(f"Error: {e}")
         
-main()
+if __name__ =="__main__":
+    main()
