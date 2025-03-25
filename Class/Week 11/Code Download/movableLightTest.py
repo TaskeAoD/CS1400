@@ -41,7 +41,7 @@ class MovableLightTest:
             self.light.resize(self.light_width)
         elif ch == "C" or ch == "c":
             self.light.change()
-print("Key pressed")
+            print("Key pressed")
 
 
 # Main program ---------------------------------------------------------------------
