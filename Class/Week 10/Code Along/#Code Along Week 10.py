@@ -80,7 +80,7 @@ class Vehicle:
         return self.engine.charge()
     
     def __str__(self):
-        return f"{self.make} {self.model} {self.year} {self.color}"    
+        return f"{self.make} {self.model} {self.year} {self.color} {self.engine.engine_type}"    
 
     def __repr__(self):
         return(
@@ -107,7 +107,11 @@ def main():
             print(vehicle)
             vehicle.start()
             print(vehicle)
-        
+            if vehicle.engine.engine_type == 'Electric':
+                print(vehicle.charge_engine())
+            vehicle.stop()
+            print(vehicle)
+            print("-"*50)
     except ValueError as e:
         print(f"Error: {e}")
         
