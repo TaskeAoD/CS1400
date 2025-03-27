@@ -1,10 +1,12 @@
 # pygame demo 8  - SimpleText, SimpleButton, and Ball
 
 # 1 - Import packages
-from Ball import Ball
-from SimpleButton import SimpleButton
-from SimpleText import SimpleText
-import time
+import pygame
+from pygame.locals import *
+import sys, random
+from Ball import * #Bring in the Ball class code in the folder
+from SimpleButton import *
+from SimpleText import *
 
 # 2 - Define constants
 
