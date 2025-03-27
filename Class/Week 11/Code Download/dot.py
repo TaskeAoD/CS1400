@@ -12,7 +12,7 @@ class Dot(GraphicalObject):
         self.turtle.penup() # Move pen
         self.turtle.setpos(self.x, self.y)
         self.turtle.pendown()
-        self.turtle.fillcolor("red")
+        self.turtle.fillcolor("blue")
         self.turtle.begin_fill()
         self.turtle.circle(20)
         self.turtle.end_fill()

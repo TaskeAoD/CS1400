@@ -14,7 +14,7 @@ class TurnLightTest:
         f.pack()
         # Place traffic light at the center of the window frame
         print("Frame width:", f.winfo_width())
-        self.light = TurnLight(f, height//10, "green")
+        self.light = TurnLight(f, height//10, "red")
         f.bind("<Button-1>", self.mouse_pressed)
         f.bind("<Key>", self.key_pressed)
         f.focus_set()
