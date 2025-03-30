@@ -25,19 +25,6 @@ class Character:
         print("Attributes:")
         for key, value in self.attributes.items():
             print(f"  {key}: {value}")
-            
-    def sheet(self):
-        filename = f"{self.name}_character.txt"
-        with open(filename, "w") as file:
-            file.write("-=-=-=Character Sheet=-=-=-\n")
-            file.write(f"Character Name: {self.name}\n")
-            file.write(f"Player Name: {self.player}\n")
-            file.write(f"Class: {self.character_class}\n")
-            file.write(f"Race: {self.race}\n")
-            file.write(f"Attributes:\n")
-            for key, value in self.attributes.items():
-                file.write(f"   {key}: {value}\n")
-        print("\nCharacter saved to '{filename}'!")
 
 
 class Game:
@@ -54,8 +41,8 @@ class Game:
                 return choice
             print("Invalid choice, please try again.")
 
-    def create_character(self):
-        """Guides the user to create a character."""
+    def create_character(self): #Character Creation Part
+
         print("Welcome to the D&D Character Creator!\nThis will be using a simplified 5e point buy system!")
 
         name = input("Enter your character's name: ")
@@ -77,7 +64,7 @@ class Game:
                 try:
                     value = int(input(f"Assign points to {attr} (Remaining: {points}): "))
                     if 0 <= value <= points:
-                        attributes[attr] = value
+                        attributes[attr] = value + 8
                         points -= value
                         break
                     else:
@@ -87,13 +74,31 @@ class Game:
 
         self.character = Character(name, player, character_class, race, 
                                    attributes["Strength"], attributes["Dexterity"], attributes["Agility"], attributes["Intelligence"], attributes["Wisdom"], attributes["Charisma"])
-        print("\nCharacter creation complete!")
-
+        print("\nCharacter creation complete!") 
+        
+    def sheet(self):
+        save = input("\nWould you like to save this Character? (Y/N): ").strip().lower()
+        if save == "y":
+            filename = f"{self.character.name}_character.txt"
+            with open(filename, "w") as file:
+                file.write("-=-=-=Character Sheet=-=-=-\n")
+                file.write(f"Character Name: {self.character.name}\n")
+                file.write(f"Player Name: {self.character.player}\n")
+                file.write(f"Class: {self.character.character_class}\n")
+                file.write(f"Race: {self.character.race}\n")
+                file.write(f"Attributes:\n")
+                for key, value in self.character.attributes.items():
+                    file.write(f"   {key}: {value}\n")
+                print(f"\nCharacter saved to '{self.character.name}.txt'!")        
+        else:
+            print("Character not saved.") 
+     
     def play(self):
         """Starts the character creation process and displays the character."""
         self.create_character()
         self.character.display_character()
-
+        self.sheet()
+        
 
 # Run the game
 if __name__ == "__main__":

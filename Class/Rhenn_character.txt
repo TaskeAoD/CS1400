@@ -1,0 +1,12 @@
+-=-=-=Character Sheet=-=-=-
+Character Name: Rhenn
+Player Name: Michael
+Class: Fighter
+Race: Human
+Attributes:
+   Strength: 10
+   Dexterity: 6
+   Agility: 3
+   Intelligence: 4
+   Wisdom: 2
+   Charisma: 2
