@@ -1,7 +1,6 @@
 import os
 
-class Character:
-    """Class to create a D&D character with attributes."""
+class Character: #Full Class for character creation info
     def __init__(self, name, player, character_class, race, strength, dexterity, agility, intelligence, wisdom, charisma):
         self.name = name
         self.player = player
@@ -16,8 +15,7 @@ class Character:
             "Charisma": charisma
         }
 
-    def display_character(self):
-        """Displays the final character details."""
+    def display_character(self):  #Displays the final character details.
         print("\n===== Character Sheet =====")
         print(f"Name: {self.name}")
         print(f"Class: {self.character_class}")
@@ -26,15 +24,12 @@ class Character:
         for key, value in self.attributes.items():
             print(f"  {key}: {value}")
 
-
-class Game:
-    """Handles user input to create a D&D character."""
-    
+class Game: #Class to handle character creation
+   
     def __init__(self):
         self.character = None  # Placeholder for the created character
 
-    def get_valid_input(self, prompt, options):
-        """Ensures valid input from a list of options."""
+    def get_valid_input(self, prompt, options): #Ensures input is valid and matches what is displayed
         while True:
             choice = input(prompt).strip().capitalize()
             if choice in options:
@@ -76,7 +71,7 @@ class Game:
                                    attributes["Strength"], attributes["Dexterity"], attributes["Agility"], attributes["Intelligence"], attributes["Wisdom"], attributes["Charisma"])
         print("\nCharacter creation complete!") 
         
-    def sheet(self):
+    def sheet(self): #Function to save to text file.
         save = input("\nWould you like to save this Character? (Y/N): ").strip().lower()
         if save == "y":
             filename = f"{self.character.name}_character.txt"
@@ -93,14 +88,12 @@ class Game:
         else:
             print("Character not saved.") 
      
-    def play(self):
-        """Starts the character creation process and displays the character."""
+    def play(self): #Actual part, running the functions from the class
         self.create_character()
         self.character.display_character()
         self.sheet()
         
 
-# Run the game
-if __name__ == "__main__":
+if __name__ == "__main__": #Call to run the system
     game = Game()
     game.play()
