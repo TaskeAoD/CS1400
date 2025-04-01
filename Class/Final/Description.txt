@@ -1,0 +1,24 @@
+Option 1: D&D Character Creator
+
+Program will be a basic character creation tool for Dungeons and Dragons 5th Edition.
+
+Program will run through basic questions: Character Name, Player Name, Character Class, Character Race.  After getting basic information program will have user distribute points for attributes, going in order of standard character sheet: Strength, Constitution, Dexterity, Intelligence, Wisdom, Charisma.
+
+Program will also have ability to save file as a basic .txt so user can transfer info to standard character sheet.
+
+If possible, I want to be able to include an extra file that it can call that will include bonuses for Character Race, but I'm concerned that it will overly complicate the project.
+
+Project Code Sample:
+
+for attr in attributes.keys():
+            while True:
+                try:
+                    value = int(input(f"Assign points to {attr} (Remaining: {points}): "))
+                    if 0 <= value <= points:
+                        attributes[attr] = value + 8
+                        points -= value
+                        break
+                    else:
+                        print("Invalid amount. You must assign within the remaining points.")
+                except ValueError:
+                    print("Please enter a valid number.")

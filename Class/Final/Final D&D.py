@@ -1,15 +1,16 @@
 import os
+#import RaceList from BonusRace
 
 class Character: #Full Class for character creation info
-    def __init__(self, name, player, character_class, race, strength, dexterity, agility, intelligence, wisdom, charisma):
+    def __init__(self, name, player, race, character_class, strength, constitution, dexterity, intelligence, wisdom, charisma):
         self.name = name
         self.player = player
         self.character_class = character_class
         self.race = race
         self.attributes = {
             "Strength": strength,
+            "Constitution": constitution,
             "Dexterity": dexterity,
-            "Agility": agility,
             "Intelligence": intelligence,
             "Wisdom": wisdom,
             "Charisma": charisma
@@ -18,11 +19,11 @@ class Character: #Full Class for character creation info
     def display_character(self):  #Displays the final character details.
         print("\n===== Character Sheet =====")
         print(f"Name: {self.name}")
-        print(f"Class: {self.character_class}")
         print(f"Race: {self.race}")
+        print(f"Class: {self.character_class}")
         print("Attributes:")
         for key, value in self.attributes.items():
-            print(f"  {key}: {value}")
+            print(f"{key}: {value}")
 
 class Game: #Class to handle character creation
    
@@ -30,29 +31,29 @@ class Game: #Class to handle character creation
         self.character = None  # Placeholder for the created character
 
     def get_valid_input(self, prompt, options): #Ensures input is valid and matches what is displayed
-        while True:
-            choice = input(prompt).strip().capitalize()
-            if choice in options:
+        while True:  #Code taken and modified for this use from https://discuss.python.org/t/multi-purpose-function-for-simple-user-input/18046/2
+            choice = input(prompt).strip().capitalize() #User: Vbrozik on the Python.org forums, Aug 2022
+            if choice in options:  #Issues I ran into were that theirs called the question and mine needed the self tag
                 return choice
             print("Invalid choice, please try again.")
 
     def create_character(self): #Character Creation Part
 
-        print("Welcome to the D&D Character Creator!\nThis will be using a simplified 5e point buy system!")
+        print("Welcome to the simple D&D Character Creator!\nThis will be using a simplified 5e point allocation system!")
 
-        name = input("Enter your character's name: ")
-        player = input(f"Who is playing {name}: ")
-
-        classes = ["Fighter", "Sorcerer", "Rogue", "Artificer"]
-        character_class = self.get_valid_input(f"Choose a class {classes}: ", classes)
-
-        races = ["Human", "Elf", "Dwarf", "Orc"]
+        name = input("Enter your character's name: ").strip().capitalize()
+        player = input(f"Who is playing {name}: ").strip().capitalize()
+        
+        races = ["Dwarf", "Elf", "Halfling", "Human", "Dragonborn", "Gnome", "Half-Elf", "Half-Orc", "Tiefling"]
         race = self.get_valid_input(f"Choose a race {races}: ", races)
 
-        print("\nNow, assign 27 points to your attributes (Strength, Dexterity, Intelligence).")
+        classes = ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"]
+        character_class = self.get_valid_input(f"Choose a class {classes}: ", classes)
+
+        print("\nNow, assign 27 points to your attributes (Strength, Constitution, Dexterity, Intelligence, Wisdom, Charisma.)")
         
         points = 27
-        attributes = {"Strength": 8, "Dexterity": 8, "Agility": 8, "Intelligence": 8, "Wisdom": 8, "Charisma": 8}
+        attributes = {"Strength": 8, "Constitution": 8, "Dexterity": 8, "Intelligence": 8, "Wisdom": 8, "Charisma": 8}
 
         for attr in attributes.keys():
             while True:
@@ -66,9 +67,10 @@ class Game: #Class to handle character creation
                         print("Invalid amount. You must assign within the remaining points.")
                 except ValueError:
                     print("Please enter a valid number.")
+                    
 
-        self.character = Character(name, player, character_class, race, 
-                                   attributes["Strength"], attributes["Dexterity"], attributes["Agility"], attributes["Intelligence"], attributes["Wisdom"], attributes["Charisma"])
+        self.character = Character(name, player, race, character_class, 
+                                   attributes["Strength"], attributes["Constitution"], attributes["Dexterity"], attributes["Intelligence"], attributes["Wisdom"], attributes["Charisma"])
         print("\nCharacter creation complete!") 
         
     def sheet(self): #Function to save to text file.
