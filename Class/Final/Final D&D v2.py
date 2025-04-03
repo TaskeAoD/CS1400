@@ -1,13 +1,12 @@
 import os
 
-# Dictionary containing racial bonuses based on D&D 5e rules
+# Dictionaries containing racial and class bonuses based on D&D 5e rules
 RACE_BONUSES = {"Dwarf": {"Constitution": 2}, "Elf": {"Dexterity": 2}, "Halfling": {"Dexterity": 2},
     "Human": {"Strength": 1, "Constitution": 1, "Dexterity": 1, "Intelligence": 1, "Wisdom": 1, "Charisma": 1},
     "Dragonborn": {"Strength": 2, "Charisma": 1}, "Gnome": {"Intelligence": 2},
     "Half-Elf": {"Charisma": 2, "Choice": 2},  # Two ability scores of choice get +1
     "Half-Orc": {"Strength": 2, "Constitution": 1}, "Tiefling": {"Charisma": 2, "Intelligence": 1}}
 
-# Dictionary containing class bonuses (optional, since most classes don't modify attributes directly)
 CLASS_BONUSES = {"Barbarian": {"Strength": 1}, "Bard": {"Charisma": 1}, "Cleric": {"Wisdom": 1}, "Druid": {"Wisdom": 1},
     "Fighter": {"Strength": 1}, "Monk": {"Dexterity": 1}, "Paladin": {"Strength": 1, "Charisma": 1}, "Ranger": {"Dexterity": 1},
     "Rogue": {"Dexterity": 1}, "Sorcerer": {"Charisma": 1}, "Warlock": {"Charisma": 1}, "Wizard": {"Intelligence": 1}}
@@ -57,9 +56,9 @@ class Game: #Full class to handle character creation
 
     def get_valid_input(self, prompt, options): #Ensures input is valid and matches what is displayed
         while True: #Code taken and modified for this use from https://discuss.python.org/t/multi-purpose-function-for-simple-user-input/18046/2
-            choice = input(prompt).strip().capitalize() #User: Vbrozik on the Python.org forums, Aug 2022
+            choice = input(prompt).strip().capitalize().title() #User: Vbrozik on the Python.org forums, Aug 2022
             if choice in options: #Issues I ran into were that theirs called the question and mine needed the self tag
-                return choice
+                return choice.join(choice.capitalize() for choice in prompt.split())
             print("Invalid choice, please try again.")
 
     def create_character(self): #Character Creation part
@@ -84,7 +83,7 @@ class Game: #Full class to handle character creation
                 try:
                     value = int(input(f"Assign points to {attr} (Remaining: {points}): "))
                     if 0 <= value <= points:
-                        attributes[attr] += value +8
+                        attributes[attr] += value
                         points -= value
                         break
                     else:
