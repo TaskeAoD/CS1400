@@ -1,5 +1,4 @@
 import os
-#import RaceList from BonusRace
 
 class Character: #Full Class for character creation info
     def __init__(self, name, player, race, character_class, strength, constitution, dexterity, intelligence, wisdom, charisma):

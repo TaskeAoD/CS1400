@@ -1,0 +1,12 @@
+-=-=-=Character Sheet=-=-=-
+Character Name: Strom
+Player Name: Michael
+Class: Rogue
+Race: Tiefling
+Attributes:
+   Strength: 20
+   Constitution: 19
+   Dexterity: 26
+   Intelligence: 21
+   Wisdom: 19
+   Charisma: 22
