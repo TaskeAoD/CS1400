@@ -49,7 +49,7 @@ class Character:
         for key, value in self.attributes.items():
             print(f"{key}: {value}")
 
-class Game: #Full class to handle character creation
+class Creation: #Full class to handle character creation
     
     def __init__(self):
         self.character = None #Placeholder for the created character
@@ -57,7 +57,7 @@ class Game: #Full class to handle character creation
     def get_valid_input(self, prompt, options): #Ensures input is valid and matches what is displayed
         while True: #Code taken and modified for this use from https://discuss.python.org/t/multi-purpose-function-for-simple-user-input/18046/2
             choice = input(prompt).strip().title() #User: Vbrozik on the Python.org forums, Aug 2022 ##Edited here to use title() instead of capitalize() for Half-Elf and Half-Orc issue
-            if choice in options: #Issues I ran into were that theirs called the question and mine needed the self tag
+            if choice in options: #Issues I ran into were that theirs called the just a question and mine needed the self tag for repeated use
                 return choice
             print("Invalid choice, please try again.")
 
@@ -73,7 +73,7 @@ class Game: #Full class to handle character creation
         classes = list(CLASS_BONUSES.keys()) #Same as above, but this pulls class
         character_class = self.get_valid_input(f"Choose a class {classes}: ", classes)
 
-        print("\nNow, assign 27 points to your attributes (Base starts at 8 for each).")
+        print("Now, assign 27 points to your attributes (Base starts at 8 for each).")
 
         points = 27
         attributes = {"Strength": 8, "Constitution": 8, "Dexterity": 8, "Intelligence": 8, "Wisdom": 8, "Charisma": 8}
@@ -117,5 +117,5 @@ class Game: #Full class to handle character creation
         self.sheet()
 
 if __name__ == "__main__":
-    game = Game()
+    game = Creation()
     game.play()
