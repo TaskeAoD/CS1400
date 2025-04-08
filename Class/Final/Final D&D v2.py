@@ -56,7 +56,7 @@ class Game: #Full class to handle character creation
 
     def get_valid_input(self, prompt, options): #Ensures input is valid and matches what is displayed
         while True: #Code taken and modified for this use from https://discuss.python.org/t/multi-purpose-function-for-simple-user-input/18046/2
-            choice = input(prompt).strip().title() #User: Vbrozik on the Python.org forums, Aug 2022
+            choice = input(prompt).strip().title() #User: Vbrozik on the Python.org forums, Aug 2022 ##Edited here to use title() instead of capitalize() for Half-Elf and Half-Orc issue
             if choice in options: #Issues I ran into were that theirs called the question and mine needed the self tag
                 return choice
             print("Invalid choice, please try again.")
