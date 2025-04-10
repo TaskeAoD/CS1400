@@ -1,5 +1,3 @@
-import os
-
 # Dictionaries containing racial and class bonuses based on D&D 5e rules
 RACE_BONUSES = {"Dwarf": {"Constitution": 2}, "Elf": {"Dexterity": 2}, "Halfling": {"Dexterity": 2},
     "Human": {"Strength": 1, "Constitution": 1, "Dexterity": 1, "Intelligence": 1, "Wisdom": 1, "Charisma": 1},
