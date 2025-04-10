@@ -9,7 +9,7 @@ CLASS_BONUSES = {"Barbarian": {"Strength": 1}, "Bard": {"Charisma": 1}, "Cleric"
     "Fighter": {"Strength": 1}, "Monk": {"Dexterity": 1}, "Paladin": {"Strength": 1, "Charisma": 1}, "Ranger": {"Dexterity": 1},
     "Rogue": {"Dexterity": 1}, "Sorcerer": {"Charisma": 1}, "Warlock": {"Charisma": 1}, "Wizard": {"Intelligence": 1}}
 
-class Character:
+class Character: #Class for character creation
     def __init__(self, name, player, race, character_class, attributes):
         self.name = name
         self.player = player
