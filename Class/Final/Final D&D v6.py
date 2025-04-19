@@ -39,7 +39,7 @@ class Character: #Class for character creation
                 self.attributes[attr] += bonus
 
     def display_character(self): #Displays final character info
-        print("\n===== Character Sheet =====")
+        print("\n-=-=-=Character Sheet=-=-=-")
         print(f"Name: {self.name}")
         print(f"Race: {self.race}")
         print(f"Class: {self.character_class}")

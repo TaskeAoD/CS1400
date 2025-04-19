@@ -1,0 +1,12 @@
+-=-=-=Character Sheet=-=-=-
+Character Name: Reiner
+Player Name: Michael Lund
+Class: Warlock
+Race: Elf
+Attributes:
+   Strength: 12
+   Constitution: 11
+   Dexterity: 13
+   Intelligence: 11
+   Wisdom: 13
+   Charisma: 18

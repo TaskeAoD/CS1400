@@ -16,7 +16,7 @@ class Character: #Full Class for character creation info
         }
 
     def display_character(self):  #Displays the final character details.
-        print("\n===== Character Sheet =====")
+        print("\n-=-=-=Character Sheet=-=-=-")
         print(f"Name: {self.name}")
         print(f"Race: {self.race}")
         print(f"Class: {self.character_class}")
